@@ -1,3 +1,6 @@
+using BACKEND.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +10,11 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<EdunovaContext>(o =>
+{
+    o.UseSqlServer(builder.Configuration.GetConnectionString("EdunovaContext"));
+});
 
 var app = builder.Build();
 
