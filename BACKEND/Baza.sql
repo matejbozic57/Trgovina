@@ -1,4 +1,4 @@
-Use master 
+/*Use master 
 go
 drop database if exists secondhand
 go
@@ -6,6 +6,15 @@ create database secondhand collate Croatian_CI_AS;
 go
 
 use secondhand
+*/
+
+ALTER DATABASE db_abb4f6_wp8_admin SET SINGLE_USER WITH
+ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE db_abb4f6_wp8_admin COLLATE Latin1_General_100_CI_AI_SC_UTF8;
+GO
+ALTER DATABASE db_abb4f6_wp8_admin SET MULTI_USER;
+GO
 
 create table odjece(
 sifra int not null primary key identity  (1,1),
