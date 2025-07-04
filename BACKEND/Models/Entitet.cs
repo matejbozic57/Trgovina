@@ -2,7 +2,7 @@
 
 namespace BACKEND.Models
 {
-    public class Odjece
+    public abstract class Entitet
     {
         [Key]
         public int Sifra { get; set; }

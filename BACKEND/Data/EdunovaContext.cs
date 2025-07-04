@@ -11,7 +11,7 @@ namespace BACKEND.Data
         
         
         }
-        public DbSet<Odjece> Odjece { get; set; }
+        public DbSet<Odjeca> Odjece { get; set; }
 
     }
 }
