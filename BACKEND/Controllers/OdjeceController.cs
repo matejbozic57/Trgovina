@@ -16,7 +16,7 @@ namespace BACKEND.Controllers
         }
             [HttpGet]
             public IActionResult Get()
-                {
+         {
             try
             {
                 return Ok(_context.Odjece);
@@ -26,7 +26,23 @@ namespace BACKEND.Controllers
             {
                 return BadRequest(e);
             }
+          }
+
+        [HttpPost]
+
+        public IActionResult Post()
+        {
+            try
+            {
+                _context.Odjece.Add(Odjece);
+                _context.SaveChanges();
+                return StatusCode(StatusCode.Status201Created, Odjece);
             }
+            catch (Exception e)
+            {  
+                return BadRequest(e);
+            }
+        }
         
     }
 }
