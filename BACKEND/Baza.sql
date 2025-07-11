@@ -46,6 +46,23 @@ odjeca int not null references odjece (sifra),
 prodaja int not null references prodaje (sifra),
 );
 
+select * from odjece
+
+insert into odjece (naziv, opis, velicina, cijena, stanje)
+
+values ('majica', 'bijela', 'M', '20', 'novo');
+
+insert into odjece (naziv, opis, velicina, cijena, stanje)
+
+values ('traperice zenske', 'plave', 'M', '40', 'koristeno');
+
+insert into odjece (naziv, opis, velicina, cijena, stanje)
+
+values ('kosulja muska', 'crna', 'M', '55', 'novo');
+
+insert into odjece (naziv, opis, velicina, cijena, stanje)
+
+values ('zenski sat', 'zlatni', 'custom', '85', 'novo');
 
 
 
