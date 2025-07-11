@@ -1,9 +1,11 @@
+import { Container } from "react-bootstrap";
 
 export default function Pocetna(){
     return(
-        <>
-         Dobrodošli!
-        </>
+        <Container className="app">
+            Dobrodosli
+
+        </Container>
        
     )
 }
