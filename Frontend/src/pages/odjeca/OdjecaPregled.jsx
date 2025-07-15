@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import OdjecaService from "../../services/OdjecaService";
 import { NumericFormat } from "react-number-format";
+import { RouteNames } from "../../constants";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,11 +22,28 @@ export default function OdjecaPregled(){
     useEffect(()=>{
         dohvatiOdjecu();
     },[])
+      
+    function obrisi(sifra){
+        if(!confirm('Sigurno obrisati?')){
+            return;
+        }
+        brisanje(sifra)
+    }
+
+    async function brisanje(sifra) {
+        const odgovor = await OdjecaService.obrisi(sifra);
+        dohvatiOdjecu();
+    }
 
 
     return(
         <>
-        Tablični Pregled odjeće
+        
+
+       <Link
+       className="btn btn-success"
+       to={RouteNames.ODJECA_NOVA} >Dodavanje nove odjece</Link>
+
         <Table striped bordered hover responsive>
             <thead>
                 <tr>

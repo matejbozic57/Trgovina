@@ -1,0 +1,88 @@
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { RouteNames } from "../../constants";
+import OdjecaService from "../../services/OdjecaService";
+import { Link, useNavigate } from "react-router-dom";
+
+export default function OdjecaDodaj(){
+   const navigate = useNavigate();
+
+    async function dodaj(odjeca){
+        const odgovor = await OdjecaService.dodaj(odjeca);
+        navigate(RouteNames.ODJECA_PREGLED);
+
+    }
+    
+    
+
+
+    function odradiSubmit(e){ //e je event
+        e.preventDefault();
+
+        let podaci = new FormData(e.target); // dohvaćamo sve podatke iz forme
+
+        dodaj(
+            {
+            naziv: podaci.get('naziv'),
+            cijena: parseFloat(podaci.get('cijena')),
+            velicina: podaci.get('velicina'),
+            opis: podaci.get('opis'),
+            stanje: podaci.get('stanje'),
+            }
+        )
+
+
+    }
+    return (
+        <> 
+        Dodavanje odjece
+        <Form onSubmit={odradiSubmit}>
+
+             <Form.Group controlId="Naziv">
+                <Form.Label>Naziv</Form.Label>
+                <Form.Control type="text" name="Naziv" required />
+            </Form.Group>
+            
+
+            <Form.Group controlId="Cijena">
+                <Form.Label>Cijena</Form.Label>
+                <Form.Control type="number" name="Cijena" required />
+            </Form.Group>
+
+            <Form.Group controlId="Velicina">
+                <Form.Label>Velicina</Form.Label>
+                <Form.Control type="text" name="Velicina" required />
+            </Form.Group>
+
+            <Form.Group controlId="Opis">
+                <Form.Label>Opis</Form.Label>
+                <Form.Control type="text" name="naziv" required />
+            </Form.Group>
+
+            <Form.Group controlId="Stanje">
+                <Form.Label>Stanje</Form.Label>
+                <Form.Control type="text" name="naziv" required />
+            </Form.Group>
+        
+           <Row>
+          <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
+            <Link to={RouteNames.ODJECA_PREGLED}
+            className="btn btn-danger">Odustani</Link>
+                    
+                </Col>
+                <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
+                    <Button variant="success" type="submit">
+                    Dodaj Odjecu
+                    </Button>
+                    </Col>
+           </Row>
+
+
+
+        
+        </Form></>
+        
+
+
+    
+    )
+}
