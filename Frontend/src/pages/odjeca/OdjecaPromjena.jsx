@@ -6,15 +6,8 @@ import { useEffect, useState } from "react";
 
 export default function OdjecaPromjena(){
    const navigate = useNavigate();
-   const params = useParams()
+   const params = useParams();
    const[odjeca,setOdjeca] = useState({})
-
-
-   useEffect(()=>{
-    ucitajOdjeca()
-
-
-   },[])
 
    
 
@@ -23,7 +16,12 @@ export default function OdjecaPromjena(){
        navigate(RouteNames.ODJECA_PREGLED);
 
     }
-    
+     useEffect(()=>{
+    ucitajOdjeca()
+
+
+   },[])
+
     
 
 
