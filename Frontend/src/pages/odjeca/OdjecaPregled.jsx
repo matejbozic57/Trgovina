@@ -3,14 +3,14 @@ import { Button, Table } from "react-bootstrap";
 import OdjecaService from "../../services/OdjecaService";
 import { NumericFormat } from "react-number-format";
 import { RouteNames } from "../../constants";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 
 
 export default function OdjecaPregled(){
 
     const[odjece, setOdjece] = useState([]);
-
+    const navigate= useNavigate();
 
     async function dohvatiOdjecu() {
        const odgovor = await OdjecaService.get()
@@ -83,6 +83,13 @@ export default function OdjecaPregled(){
                            {odjeca.stanje}
                         </td>
                         <td>
+                             <Button
+                            onClick={()=>navigate(`/odjeca/${odjeca.sifra}`)}>
+                            Promjena
+                            </Button>   
+                           &nbsp; &nbsp; &nbsp;
+
+
                             <Button variant="danger"
                             onClick={()=>obrisi(odjeca.sifra)}>
                                 Obriši

@@ -7,6 +7,7 @@ import Pocetna from './pages/Pocetna'
 import { RouteNames } from './constants'
 import OdjecaPregled from './pages/odjeca/OdjecaPregled'
 import OdjecaDodaj from './pages/odjeca/OdjecaDodaj'
+import OdjecaPromjena from './pages/odjeca/OdjecaPromjena'
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
       <Route path={RouteNames.ODJECA_PREGLED} element={<OdjecaPregled/>} />
       <Route path={RouteNames.ODJECA_NOVA} element={<OdjecaDodaj/>} />
+      <Route path={RouteNames.ODJECA_PROMJENA} element={<OdjecaPromjena/>} />
      </Routes>
       <hr />
       &copy; Edunova

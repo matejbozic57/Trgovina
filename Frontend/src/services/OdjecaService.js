@@ -23,9 +23,15 @@ async function obrisi(sifra) {
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
 }
-
+async function promjeni(sifra,odjeca) {
+    return await HttpService.put('/Odjeca/'+sifra,odjeca)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
 export default{
     get,
+    getBySifra,
     dodaj,
-    obrisi
+    obrisi,
+    promjeni
 }
