@@ -1,7 +1,7 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { RouteNames } from "../../constants";
 import OdjecaService from "../../services/OdjecaService";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function OdjecaPromjena(){
@@ -9,10 +9,14 @@ export default function OdjecaPromjena(){
    const params = useParams();
    const[odjeca,setOdjeca] = useState({})
 
-   
+   async function ucitajOdjeca(){
+        const odgovor = await OdjecaService.getBySifra(params.sifra);
+       setOdjeca(odgovor);
+
+    }
 
     async function promjena(sifra,odjeca){
-        const odgovor = await OdjecaService.promjena(sifra,odjeca);
+        const odgovor = await OdjecaService.promjeni(sifra,odjeca);
        navigate(RouteNames.ODJECA_PREGLED);
 
     }
@@ -31,6 +35,7 @@ export default function OdjecaPromjena(){
         let podaci = new FormData(e.target); // dohvaćamo sve podatke iz forme
 
         promjena(
+            params.sifra,
             {
             naziv: podaci.get('naziv'),
             cijena: parseFloat(podaci.get('cijena')),
@@ -49,28 +54,28 @@ export default function OdjecaPromjena(){
 
              <Form.Group controlId="naziv">
                 <Form.Label>Naziv</Form.Label>
-                <Form.Control type="text" name="naziv" required />
+                <Form.Control type="text" name="naziv" required defaultValue={odjeca.naziv} />
             </Form.Group>
             
 
             <Form.Group controlId="cijena">
                 <Form.Label>Cijena</Form.Label>
-                <Form.Control type="number" name="cijena" required />
+                <Form.Control type="number" name="cijena" required defaultValue={odjeca.cijena} />
             </Form.Group>
 
             <Form.Group controlId="velicina">
                 <Form.Label>Velicina</Form.Label>
-                <Form.Control type="text" name="velicina" required />
+                <Form.Control type="text" name="velicina" required  defaultValue={odjeca.velicina}/>
             </Form.Group>
 
             <Form.Group controlId="opis">
                 <Form.Label>Opis</Form.Label>
-                <Form.Control type="text" name="opis" required />
+                <Form.Control type="text" name="opis" required  defaultValue={odjeca.opis}/>
             </Form.Group>
 
             <Form.Group controlId="stanje">
                 <Form.Label>Stanje</Form.Label>
-                <Form.Control type="text" name="stanje" required />
+                <Form.Control type="text" name="stanje" required  defaultValue={odjeca.stanje}/>
             </Form.Group>
         
            <Row>
@@ -81,7 +86,7 @@ export default function OdjecaPromjena(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                    Dodaj Odjecu
+                    Promjeni Odjecu
                     </Button>
                     </Col>
            </Row>
