@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import OdjecaService from "../../services/OdjecaService";
 import { NumericFormat } from "react-number-format";
 import { RouteNames } from "../../constants";
@@ -52,7 +52,7 @@ export default function OdjecaPregled(){
                     <th>Veličina</th>
                     <th>Opis</th>
                     <th>Stanje</th>
-
+                    <th>Akcija</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,6 +81,12 @@ export default function OdjecaPregled(){
                         </td>
                         <td>
                            {odjeca.stanje}
+                        </td>
+                        <td>
+                            <Button variant="danger"
+                            onClick={()=>obrisi(odjeca.sifra)}>
+                                Obriši
+                            </Button>                        
                         </td>
                     </tr>
                 ))}

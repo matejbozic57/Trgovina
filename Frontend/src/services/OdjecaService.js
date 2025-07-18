@@ -12,6 +12,20 @@ async function get() {
     .catch((e)=>{})
 }
 
+async function dodaj(odjeca) {
+    return await HttpService.post('/Odjeca',odjeca)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
+
+async function obrisi(sifra) {
+    return await HttpService.delete('/Odjeca/'+sifra)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
+
 export default{
-    get
+    get,
+    dodaj,
+    obrisi
 }

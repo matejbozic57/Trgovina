@@ -29,7 +29,6 @@ namespace BACKEND.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Post(Odjeca odjeca)
         {
             try
@@ -81,8 +80,7 @@ namespace BACKEND.Controllers
         }
 
         [HttpDelete("{sifra:int}")]
-
-        public IActionResult Delete(int sifra, Odjeca odjeca)
+        public IActionResult Delete(int sifra)
         {
             if (sifra < 1)
             {
@@ -107,5 +105,30 @@ namespace BACKEND.Controllers
                 return BadRequest(e);
             }
         }
+
+
+        [HttpGet("{sifra:int}")]
+        public IActionResult Get(int sifra)
+        {
+            if(sifra < 1)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                var o = _context.Odjece.Find(sifra);
+                if (o == null)
+                {
+                    return NotFound();
+                }
+                return Ok(o);
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
     }
 }

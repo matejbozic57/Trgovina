@@ -8,7 +8,7 @@ export default function OdjecaDodaj(){
 
     async function dodaj(odjeca){
         const odgovor = await OdjecaService.dodaj(odjeca);
-        navigate(RouteNames.ODJECA_PREGLED);
+       navigate(RouteNames.ODJECA_PREGLED);
 
     }
     
@@ -26,7 +26,7 @@ export default function OdjecaDodaj(){
             cijena: parseFloat(podaci.get('cijena')),
             velicina: podaci.get('velicina'),
             opis: podaci.get('opis'),
-            stanje: podaci.get('stanje'),
+            stanje: podaci.get('stanje')
             }
         )
 
@@ -37,30 +37,30 @@ export default function OdjecaDodaj(){
         Dodavanje odjece
         <Form onSubmit={odradiSubmit}>
 
-             <Form.Group controlId="Naziv">
+             <Form.Group controlId="naziv">
                 <Form.Label>Naziv</Form.Label>
-                <Form.Control type="text" name="Naziv" required />
+                <Form.Control type="text" name="naziv" required />
             </Form.Group>
             
 
-            <Form.Group controlId="Cijena">
+            <Form.Group controlId="cijena">
                 <Form.Label>Cijena</Form.Label>
-                <Form.Control type="number" name="Cijena" required />
+                <Form.Control type="number" name="cijena" required />
             </Form.Group>
 
-            <Form.Group controlId="Velicina">
+            <Form.Group controlId="velicina">
                 <Form.Label>Velicina</Form.Label>
-                <Form.Control type="text" name="Velicina" required />
+                <Form.Control type="text" name="velicina" required />
             </Form.Group>
 
-            <Form.Group controlId="Opis">
+            <Form.Group controlId="opis">
                 <Form.Label>Opis</Form.Label>
-                <Form.Control type="text" name="naziv" required />
+                <Form.Control type="text" name="opis" required />
             </Form.Group>
 
-            <Form.Group controlId="Stanje">
+            <Form.Group controlId="stanje">
                 <Form.Label>Stanje</Form.Label>
-                <Form.Control type="text" name="naziv" required />
+                <Form.Control type="text" name="stanje" required />
             </Form.Group>
         
            <Row>
