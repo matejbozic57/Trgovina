@@ -2,6 +2,11 @@
   cursor: pointer;
 }
 
-.app{
-  min-height: 600px;
+
+.sredina{
+  text-align: center;
+}
+
+.desno{
+  text-align: right;
 }
