@@ -43,6 +43,7 @@ export default function OdjecaPregled(){
        <Link
        className="btn btn-success"
        to={RouteNames.ODJECA_NOVA} >Dodavanje nove odjece</Link>
+       
 
         <Table striped bordered hover responsive>
             <thead>
@@ -93,7 +94,8 @@ export default function OdjecaPregled(){
                             <Button variant="danger"
                             onClick={()=>obrisi(odjeca.sifra)}>
                                 Obriši
-                            </Button>                        
+                            </Button>    
+                                               
                         </td>
                     </tr>
                 ))}

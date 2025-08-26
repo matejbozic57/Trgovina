@@ -10,3 +10,34 @@
 .desno{
   text-align: right;
 }
+
+.btn.btn-success{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  --bs-btn-bg: #33b378;
+  --bs-btn-border-color: #33b378;
+  --bs-btn-hover-bg: #33b378;
+  --bs-btn-hover-border-color: #33b378;
+  --bs-btn-focus-shadow-rgb: 51, 179, 120;
+}
+
+.slika{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.nav-item.dropdown{
+  margin-left: 1050px;
+  
+}
+
+.btn.btn-danger{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  --bs-btn-bg: #e55353;
+  --bs-btn-border-color: #e55353;
+  --bs-btn-hover-bg: #e55353;
+  --bs-btn-hover-border-color: #e55353;
+  --bs-btn-focus-shadow-rgb: 229, 83, 83;
+}

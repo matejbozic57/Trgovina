@@ -16,7 +16,7 @@ export default function NavBarEdunova() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             
-            <Nav.Link href="#link">Početna</Nav.Link>
+            
             <NavDropdown title="Programi" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={()=>navigate(RouteNames.ODJECA_PREGLED)}>
                 Odjeca
